@@ -22,7 +22,7 @@ In this lab, we will use a sample classification dataset (resources/sample_data.
 
 | Bowl |Plate|Cup|Cutlery| 
 |------|------|------|-----|
-|<img src="images\bowl.jpg" width="120" height="120" />|<img src="images\plate.jpg" width="120" height="120" />|<img src="images\cup.jpg" width="120" height="120" />|<img src="images\cutlery.jpg" width="120" height="120" />
+|<img src="images/bowl.jpg" width="120" height="120" />|<img src="images\plate.jpg" width="120" height="120" />|<img src="images\cup.jpg" width="120" height="120" />|<img src="images\cutlery.jpg" width="120" height="120" />
 
 The sample dataset indicates the format required to ingest in the pipeline. You will find that there should be a top level folder containing folders for each class:
 ````
