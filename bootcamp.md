@@ -47,5 +47,5 @@ Please note: This is a rough agenda, and the schedule is subject to change pendi
   - 12:00 -  1:00 : Lunch
   -  1:00 -  2:00 : Image Similarity
   -  2:00 -  3:00 : Object Detection
-  -  3:00 -  4:00 : Deployment
+  -  3:00 -  4:00 : [Deployment of pipeline](lab02.4-operationalization\0_README.md)
   -  4:00 -  5:00 : Q&A and Feedback
