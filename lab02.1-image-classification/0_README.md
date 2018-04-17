@@ -20,9 +20,11 @@ The objectives of this lab are to:
 
 In this lab, we will use a sample classification dataset (resources/sample_data.zip) related to recyling dishes. The dataset consists of four classes: bowls, plates, cups and cutlery as shown below: 
 
+
+
 | Bowl |Plate|Cup|Cutlery| 
 |------|------|------|-----|
-|<img src="images\bowl.jpg" width="120" height="120" />|<img src="images\plate.jpg" width="120" height="120" />|<img src="images\cup.jpg" width="120" height="120" />|<img src="images\cutlery.jpg" width="120" height="120" />
+|![bowl](images\bowl.jpg)|![plate](images\plate.jpg)|![cup](images\cup.jpg)|![bowl](images\cutlery.jpg)
 
 The sample dataset indicates the format required to ingest in the pipeline. You will find that there should be a top level folder containing folders for each class:
 ````
