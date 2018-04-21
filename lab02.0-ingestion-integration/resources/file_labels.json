@@ -1,0 +1,5 @@
+{
+    "cup": ["C:\\Users\\miprasad\\Downloads\\cvp-1.0.0b2-release5\\cvp-1.0.0b2-release\\cvp_project\\classification\\sample_data\\imgs_recycling\\cup\\"],
+    "plate": ["C:\\Users\\miprasad\\Downloads\\cvp-1.0.0b2-release5\\cvp-1.0.0b2-release\\cvp_project\\classification\\sample_data\\imgs_recycling\\plate\\"],
+    "bowl": ["C:\\Users\\miprasad\\Downloads\\cvp-1.0.0b2-release5\\cvp-1.0.0b2-release\\cvp_project\\classification\\sample_data\\imgs_recycling\\bowl\\"]
+}

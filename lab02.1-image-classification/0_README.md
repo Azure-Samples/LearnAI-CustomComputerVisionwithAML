@@ -11,28 +11,13 @@ In this lab, we will:
 ### Learning Objectives ###
 
 The objectives of this lab are to:
-
 - Understand the image classification workflow
 - Learn how to format a dataset in order to ingest and perform augmentations
 - Train a model using transfer learning based on ResNet18 and evaluate the classifier
 
 ### Data
 
-In this lab, we will use a sample classification dataset (resources/sample_data.zip) related to recyling dishes. The dataset consists of four classes: bowls, plates, cups and cutlery as shown below: 
-
-
-
-| Bowl |Plate|Cup|Cutlery| 
-|------|------|------|-----|
-|![bowl](images\bowl.jpg)|![plate](images\plate.jpg)|![cup](images\cup.jpg)|![bowl](images\cutlery.jpg)
-
-The sample dataset indicates the format required to ingest in the pipeline. You will find that there should be a top level folder containing folders for each class:
-````
-imgs_recycling\bowl\...
-imgs_recycling\cup\...
-imgs_recycling\cutlery\...
-imgs_recycling\plate\...
-````
+In this lab, we will use the same sample classification dataset (resources/sample_data.zip) related to recyling dishes that was used in the previous lab.
 
 ### Execution
 
@@ -46,28 +31,11 @@ The main function that does training and evaluation is _classify_ in `train.py`.
 
 #### Dataset creation from directory
 
-The below python code will create a dataset from a directory with folders representing different classes. The _print_info()_ function provides detailed breakdown and distribution of the dataset as shown below.
+Create a dataset from a directory with folders representing different classes using the below function. You can also use _print_info()_ to obtain a detailed breakdown of the dataset.
 
 ````python
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location, enable_logging=enable_logging)
-
-dataset.print_info()
 `````
-
-```
-Dataset name: recycling
-Total classes: 4 ,total images: 63
-Label-wise image count:
-         bowl : 5 images
-         cup : 19 images
-         cutlery : 7 images
-         plate : 32 images
-Sample images for each class:
-         bowl :
-                 C:\AppData\Temp\2\azureml_runs\cvp_project_1523844450768\classification\sample_data\imgs_recycling\bowl\msft-plastic-bowl20170725152138800.jpg
-                 C:AppData\Temp\2\azureml_runs\cvp_project_1523844450768\classification\sample_data\imgs_recycling\bowl\msft-plastic-bowl20170725152141939.jpg
-                 C:AppData\Temp\2\azureml_runs\cvp_project_1523844450768\classification\sample_data\imgs_recycling\bowl\msft-plastic-bowl20170725152154282.jpg
-```
 
 #### Dataset splitting
 
