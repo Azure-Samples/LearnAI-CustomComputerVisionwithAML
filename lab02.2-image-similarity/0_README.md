@@ -147,4 +147,3 @@ For a given query image, you will find the closed ranked image and the correct m
 ### Exercise
 
 Can you find out which category of images (dotted, striped, leopard) produces the "best" ranks and can you intuitively explain this finding?
-
