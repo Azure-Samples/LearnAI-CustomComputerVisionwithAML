@@ -27,7 +27,7 @@ Our first step is to make sure we have access to a VM with a GPU.
 
 ### Data
 
-The dataset used in this lab consists of grocery items inside refrigerators and include the following classes: `Egg box, joghurt, ketchup, mushroom, mustard, orange, squash,water, etc`. An example of annotated image shown below:
+The dataset (resources\sample_data.zip) used in this lab consists of grocery items inside refrigerators and include the following classes: `Egg box, joghurt, ketchup, mushroom, mustard, orange, squash,water, etc`. An example of annotated image shown below:
 
 ![Annotated Image](images\sample_image.jpg)
 
@@ -65,7 +65,7 @@ The JPEGImages folder contains the raw jpg images. For each jpg image in the fol
 
 ### Execution
 
-To execute the detection.py script, launch Azure Machine Learning Workbench and open CLI by selecting File -> Open Command Prompt. Run the below command and walk through the code. The script would need to be edited to change the path references to the datasets.
+To execute the detection.py script located in resources, launch Azure Machine Learning Workbench and open CLI by selecting File -> Open Command Prompt. Run the below command and walk through the code. The script would need to be edited to change the path references to the datasets.
 
 
 ```az ml experiment submit -c local detection.py```
