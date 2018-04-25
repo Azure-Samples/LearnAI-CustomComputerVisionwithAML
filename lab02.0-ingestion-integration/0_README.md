@@ -83,7 +83,7 @@ The function _create_dataset_from_json_ generates a dataset using the json_file 
 
 ### Incrementally adding Images
 
-CVTK provides `ClassificationDataset.add_image(image, labels=None)` for adding images incrementally from file system to an existing dataset. This function is very useful to monitor incremental changes to the vision system in scenarios where images appear with a velocity.  
+The AML Package for Computer Vision provides `ClassificationDataset.add_image(image, labels=None)` for adding images incrementally from file system to an existing dataset. This function is very useful to monitor incremental changes to the vision system in scenarios where images appear with a velocity.  
 
 Refer to the below function that adds an image to an existing dataset:
 

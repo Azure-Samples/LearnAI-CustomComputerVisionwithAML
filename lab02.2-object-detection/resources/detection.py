@@ -17,7 +17,7 @@ if __name__ == '__main__':
                            score_threshold=score_threshold, 
                            max_total_detections=max_total_detections)
     
-    print("logdir for tensorboard:", my_detector.train_dir)
+    print("tensorboard logdir:", my_detector.train_dir)
 
     num_steps = 350
     learning_rate = 0.001 # learning rate

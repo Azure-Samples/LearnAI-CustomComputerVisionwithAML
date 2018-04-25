@@ -67,12 +67,15 @@ The JPEGImages folder contains the raw jpg images. For each jpg image in the fol
 
 To execute the detection.py script located in resources, launch Azure Machine Learning Workbench and open CLI by selecting File -> Open Command Prompt. Run the below command and walk through the code. The script would need to be edited to change the path references to the datasets.
 
-
 ```az ml experiment submit -c local detection.py```
 
 ### Model Definition and Training
 
-In this lab, we will use [Faster R-CNN](https://arxiv.org/abs/1506.01497), a significant improvement of R-CNNs for object detection. To define the [Faster R-CNN](https://arxiv.org/abs/1506.01497) model, we will set _score_threshold_ and _max_total_detections_. _score_threshold_ is used for thresholding the detection score and _max_total_detections_ is used for the number of detections allowed. The larger the value, slower the training (but may increase accuracy).
+In this lab, we will use [Faster R-CNN](https://arxiv.org/abs/1506.01497), a significant improvement of R-CNNs for object detection. The basic idea from the first R-CNN paper is illustrated in the Figure below: (1) Given an input image, (2) in a first step, a large number candidate regions/proposals are generated. (3) These region proposals, are then each independently sent through the network which outputs a vector for each Region of Interest (ROI). Finally, (4) a classifier is learned which takes the ROI representation as input and outputs a label and confidence for each ROI. The ROI's are the objects detected. Fast R-CNN and Faster R-CNN addresses the limitation of R-CNN which is computationally very expensive (since the Neural Network is evaluated for each ROI).
+
+![rcnn](images\rcnn_pipeline.jpg)
+
+To define the [Faster R-CNN](https://arxiv.org/abs/1506.01497) model, we will set _score_threshold_ and _max_total_detections_. _score_threshold_ is used for thresholding the detection score and _max_total_detections_ is used for the number of detections allowed. The larger the value, slower the training (but may increase accuracy).
 
 
 ````python
@@ -214,9 +217,36 @@ For a given query image, you can visualize the objects detected using _detection
 
 ![scored image](images\scored_image.png)
 
+### Tensorboard
+
+The computations associated for training a massive deep neural network can be fairly complex and confusing. TensorBoard will make this a lot easier to understand, debug, and optimize your TensorFlow programs. For example, TensorBoard is useful for visualizing TensorFlow graph and plot quantitative metrics about the execution of your graph.
+
+To launch tensorboard,
+1. Open CLI by selecting File -> Open Command Prompt
+2. When you run the script, you will find the log dir in cli as follows:
+
+    ```tensorboard logdir: C:\Users\miprasad\AppData\Local\Temp\cvtk_output\2018_04_25_05_09_40_faster_rcnn_resnet50\models\train```
+
+    Make a note of the logdir as we will be using it in step 3.
+
+3. Run `tensorboard --logdir=<logpath>`. For example:
+
+    ```
+    C:\path2cvpproject\cvp_project>tensorboard --logdir=C:\Users\miprasad\AppData\Local\Temp\cvtk_output\2018_04_25_04_09_22_faster_rcnn_resnet50\models\train
+
+    TensorBoard 1.5.1 at http://cvtkPreview:6006 (Press CTRL+C to quit)
+    ```
+
+Notice the url (http://cvtkPreview:6006) that is displayed after you run tensorboard. You can open this url via a browser (Chrome or Firefox):
+
+![tensorboard](images\tensorboard.jpg)
+
+In the above image, you will notice that the loss is displayed for the first 300 steps that is defined in _num_steps = 300_. Similarly, you can visualize other metrics that are useful when building or optimizing your model performance.
+
 ### Exercise
 
 1. Change the score threshold and visualize the objects on the query image.
 
 2. Can you think of ways to segment the object from the bounding box?
 
+3. Can you change the training parameters (for example, _num_steps_) and view metrics such as _log_loss_ via tensorboard? 
