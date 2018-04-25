@@ -205,6 +205,8 @@ Object 5: label=avocado, score=0.79, location=(top: 0.52, left: 0.35, bottom: 0.
 Object 6: label=gerkin, score=0.73, location=(top: 0.45, left: 0.05, bottom: 0.64, right: 0.31)
 ```
 
+The coordinate produced from the attributes are relative co-ordinates. Left/right needs to be multiplied with the image width to obtain the absolute co-ordinate. Similarly top/bottom with the image height.
+
 ### Visualization
 
 For a given query image, you can visualize the objects detected using _detection_utils.visualize_:
