@@ -2,12 +2,7 @@
 
 Using Azure ML Computer Vision Package, this hands-on lab demonstrates how you can ingest image datasets and perform image processing using third party libraries for advanced Computer Vision tasks. 
 
-In many scenarios such as in manufacturing plants/medical imaging, images are typically available incrementally over time. To have a vision system that can make incremental changes to refine the performance can be very valuable. Azure ML Computer Vision Package offers flexibility to process images incrementally. The lab also integrates OpenCV to show how you can extract edges from a sample set of images for more advanced shape detection.
-
-In this lab, we will:
-- Ingest images into a workflow in multiple ways
-- Integrate OpenCV to perform image processing tasks such as extract edges
-- Add images incrementally to the workflow
+In many scenarios such as in manufacturing plants/medical imaging, images are typically available incrementally over time. To have a vision system that can make incremental changes to refine the performance can be very valuable. Azure ML Computer Vision Package offers flexibility to process images incrementally. The lab also integrates OpenCV to show how you can extract edges from a sample set of images for more advanced shape detection. Edge detection is used as an example to demonstrate integration of OpenCV's image processing functionalities.
 
 ### Learning Objectives ###
 
@@ -83,7 +78,7 @@ The function _create_dataset_from_json_ generates a dataset using the json_file 
 
 ### Incrementally adding Images
 
-The AML Package for Computer Vision provides `ClassificationDataset.add_image(image, labels=None)` for adding images incrementally from file system to an existing dataset. This function is very useful to monitor incremental changes to the vision system in scenarios where images appear with a velocity.  
+The AML Package for Computer Vision provides `ClassificationDataset.add_image(image, labels=None)` for adding images incrementally from file system to an existing dataset.
 
 Refer to the below function that adds an image to an existing dataset:
 
@@ -101,7 +96,7 @@ Edge detection includes a variety of mathematical techniques that aim at identif
 
 In this lab, we wil use the well-known Canny edge detection algorithm that comes with OpenCV to extract useful structural information from different vision objects. It is a multi-stage algorithm that reduces noise first and then finds intensity gradient of the image.
 
-The function `extract_contour` calls _GuassianBlur_ that blurs an image using a Guassian filter first and then applies _Canny_ filter to extract edges.
+The function `extract_contour` calls _GuassianBlur_ that blurs an image using a Guassian filter first and then applies _Canny_ filter to extract edges. The color channels are swapped as OpenCV expects BGR while CVTK expects images in the RGB format.
 
 ````python
 def extract_contour(train_set_orig):
