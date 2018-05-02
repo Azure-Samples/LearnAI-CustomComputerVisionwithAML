@@ -3,8 +3,9 @@ from cvtk.evaluation import ClassificationEvaluation
 from cvtk.core import Context, ClassificationDataset
 from cvtk.core.model import CNTKTLModel
 from cvtk import Splitter
-
 from imgaug import augmenters
+from bokeh.plotting import show, output_notebook
+from ui_utils.ui_confusion_matrix import ConfusionMatrixUI
 
 import os
 
@@ -37,8 +38,7 @@ def classify(dataset_location='classification/sample_data/imgs_recycling/',
 
     # create a dataset from a directory with folders representing different classes
     dataset = ClassificationDataset.create_from_dir(dataset_name,
-                                                    dataset_location,
-                                                    enable_logging=enable_logging)
+                                                    dataset_location)
 
     # print out some info about the dataset
     print("DATASET INFO:")
@@ -47,50 +47,38 @@ def classify(dataset_location='classification/sample_data/imgs_recycling/',
     # split the full dataset into a train and test set
     # the stratify option will ensure that the different labels are balanced in the
     # train and test sets
-    splitter = Splitter(dataset, enable_logging=enable_logging)
-    train_set_orig, test_set = splitter.split(train_size=.8, stratify='label')
+    train_set_orig, test_set = dataset.split(train_size = 0.66, stratify = "label")
 
     # optionally augment images by cropping and rotating
     if do_augmentations:
-        # here we create two pipelines for doing augmentations.  the first
-        # will rotate each image by between -45 and 45 degrees (the angle is
-        # chosen at random).  then the rotated images will be flipped from left
-        # to right with probability .5.  the second pipeline will randomly crop
-        # images by between 0 and 10 percent.  each pipeline will be applied to
-        # the original dataset.  the resulting dataset will three times as many
-        # images as the original - the original dataset, the dataset after
-        # augmentation by the rotate_and_flip pipeline, and the dataset
-        # after augmentation by the crop pipeline
-        rotate_and_flip = augmenters.Sequential([
-            augmenters.Affine(rotate=(-45, 45)),
-            augmenters.Fliplr(.5)])
-
-        crop = augmenters.Sequential([augmenters.Crop(percent=(0, .1))])
-
-        train_set = augment_dataset(train_set_orig, [rotate_and_flip, crop],
-                                    enable_logging=enable_logging)
+        aug_sequence = augmenters.Sequential([
+            augmenters.Fliplr(0.5),             # horizontally flip 50% of all images
+            augmenters.Crop(percent=(0, 0.1))  # crop images by 0-10% of their height/width
+        ])
+        train_set = augment_dataset(train_set_orig, [aug_sequence])
+        print("Number of original training images = {}, with augmented images included = {}.".format(train_set_orig.size(), train_set.size()))
     else:
         train_set = train_set_orig
 
-    # now create the model
+    # model creation
+    lr_per_mb = [0.05]*7 + [0.005]*7 +  [0.0005]
+    mb_size = 32
+    input_resoluton = 224
     base_model_name = 'ResNet18_ImageNet_CNTK'
     model = CNTKTLModel(train_set.labels,
-                        base_model_name = base_model_name,
-                        output_path='.',
-                        enable_logging=enable_logging)
+                       base_model_name=base_model_name,
+                       image_dims = (3, input_resoluton, input_resoluton))
 
     # train the model using cntk
-    num_epochs = 45
-    mb_size = 32
-    model.train(train_set,
-                lr_per_mb=[.01] * 20 + [.001] * 20 + [.0001],
-                num_epochs=num_epochs,
-                mb_size=mb_size)
+    ce = ClassificationEvaluation(model, test_set, minibatch_size = mb_size)
 
-    # return the accuracy
-    ce = ClassificationEvaluation(model, test_set, minibatch_size=16,
-                                  enable_logging=enable_logging)
     acc = ce.compute_accuracy()
+    print("Accuracy = {:2.2f}%".format(100*acc))
+    cm  = ce.compute_confusion_matrix()
+    print("Confusion matrix = \n{}".format(cm))
+
+    cm_ui = ConfusionMatrixUI(cm, [l.name for l in test_set.labels])
+    show(cm_ui.ui)
 
     return acc
 
