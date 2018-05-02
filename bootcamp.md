@@ -7,25 +7,24 @@ Some prior knowledge about linear algebra, calculus, probability and statistics 
 
 # Pre-requisites
 
-Pre-requisites can be found [here](bootcamp-pre-requisites/0_README.md). Briefly, pre-requisites include the following:
+Pre-requisites can be found [here](bootcamp-pre-requisites/0_README.md). Briefly, pre-requisites in the following categories include:
 
-## Resources
+  _Resources_
 
-- The ability to create resources within an Azure subscription
-- Familiarity with how to create resources in said subscription
+  - The ability to create resources within an Azure subscription
+  - Familiarity with how to create resources in said subscription
 
-## Azure Machine Learning Workbench
+  _Azure Machine Learning Workbench_
 
-- Python Proficiency and familiarity with Azure Machine Learning Workbench's end-end features including deployment.
+  - Python Proficiency and familiarity with Azure Machine Learning Workbench's end-end features including deployment
 
-## AML Package for Computer Vision
+  _AML Package for Computer Vision_
 
-- To download and install the packages, follow the instructions in the [pre-requisites](bootcamp-pre-requisites/0_README.md).
+  - To download and install the packages, follow the instructions in the [pre-requisites](bootcamp-pre-requisites/0_README.md).
 
+  _Languages_
 
-## Languages
-
-- Python
+  - Python
 
 # Goals
 
