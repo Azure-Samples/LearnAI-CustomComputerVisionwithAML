@@ -52,12 +52,11 @@ The _cvtk_ package offers several utility functions to split the dataset into a 
 
 ### Image Pairs
 
-The concept of image pairs is used in developing a ranker. Image pairs are used to train and evaluate the image ranker. We select up to `num_train_sets=20` query images from each of the 3 attributes. Each query image is paired with one image from the same attribute, and up to
-`num_different_label=50` images from other attributes. This leads to a maximum of 20\*3\*50 = 3000 mostly negative image pairs. The same approach is used for testing also. 
+The concept of image pairs is used in developing a ranker. Image pairs are used to train and evaluate the image ranker. We select up to `num_train_sets=60` query images from each of the 3 attributes. Each query image is paired with one image from the same attribute, and up to `num_ref_images_per_set=50` images from other attributes. This leads to a maximum of 60*50 = 3000 mostly negative image pairs. 
 
 ````python
-    num_train_sets = 20
-    num_test_sets = 20
+    num_train_sets = 60
+    num_test_sets = 60
     num_different_label = 50
     trainPairs = ImagePairs(train_set, num_train_sets, num_different_label)
     testPairs = ImagePairs(test_set, num_test_sets, num_different_label)
@@ -104,7 +103,7 @@ A generalized term for the Euclidean norm is the L2 distance. It's basically an 
 
 _SVM-defined weighted disance_
 
-SVM-defined weighted disance is a weighted Euclidean distance where the weights are estimated via Support Vector Machine (SVM). By analyzing the overall distribution of dimensions for training data, the SVM-based weight can help the retrieval activity recognize the dimensions with larger weights. In this way, the retrieval could be more sensitive to the classification boundary.
+SVM-defined weighted disance is a weighted Euclidean distance where the weights are estimated via Support Vector Machine (SVM). In this approach, we extract weight factor from SVMs to apply to the Euclidean distance measurement. In this way, retrieval could be more sensitive to the classification boundary and hence, can reduce misclassifications.
 
 To use the ranker, first instantiate the image similarity ranker using the appropriate metric:
 
@@ -135,6 +134,8 @@ For quantitative evaluation, we will use image pairs obtained from the earlier s
     mean_rank = re.compute_mean_rank()
     median_rank = re.compute_median_rank()
 ````
+
+The ranks for all query images can be aggregated into metrics such as the median or mean rank. However, aggregation rank metrics such as mean/median can be susceptible to outliers and should be taken with a grain of salt. 
 
 ### Visualization
 
