@@ -2,12 +2,6 @@
 
 This hands-on lab demonstrates the application of the Azure ML Computer Vision Package for image classification.
 
-In this lab, we will:
-- Create a sample pipeline for image classification
-- Ingest an image dataset
-- Perform image augmentations
-- Train a model using transfer learning based on ResNet18
-
 ### Learning Objectives ###
 
 The objectives of this lab are to:
@@ -49,7 +43,10 @@ train_set_orig, test_set = splitter.split(train_size=.8, stratify='label')
 
 ### Augmentation
 
-To achieve good performance, deep networks require large amount of training data. To build a robust image classifier using very little training data, image augmentation is usually required to boost the performance of deep networks.  Image augmentation artificially creates training images through different ways of processing or combinations of multiple processing, such as random rotation, shifts, shear and flips, etc.
+To achieve good performance, deep networks require large amount of training data. Image augmentation artificially creates training images through different ways of processing or combinations of multiple processing, such as random rotation, shifts, shear and flips, etc.
+
+Adding augmented images generally is optional and the recommendation is not to do so (but perhaps later when trying to improve the results) as this step can be quite expensive (time consuming and requires additional space). In addition, CVTK does not cache the augmented images and hence, this would have to be rerun every single time.
+
 
 In this lab, we will demonstrate how you can perform a few augmentations using the _augmenters_ module:
 
