@@ -114,7 +114,11 @@ In addition, we can also use _ui_utils_ to visualize the confusion matrix by run
     show(cm_ui.ui)
 ````
 
-This will generate a confusion matrix image that you can view via a browser as illustrated in the following image. Note that when you execute your script via CLI, you will be prompted to open the image (captured in an html) in a browser.
+This will generate a confusion matrix image that you can view via a browser as illustrated in the following image. Note that when you execute your script via CLI, you will be prompted to open the image (captured in an html) in a browser. Similarly, we can also obtain precision, recall and thresholds for analysis of ROC. Using the below line, can you use the precision, recall and threshold lists to plot ROC?
+
+````python
+    precisions, recalls, thresholds = ce.compute_precision_recall_curve()
+````
 
 ![confusion_matrix](images/confusion_matrix.png)
 
