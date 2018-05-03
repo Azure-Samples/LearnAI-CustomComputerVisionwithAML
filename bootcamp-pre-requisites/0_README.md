@@ -4,6 +4,17 @@ The following steps will get us up and running for the bootcamp. These activitie
 
 ##  What you will need for this workshop: 
 
+### DSVM equipped with GPU ###
+
+To use a DSVM equipped with GPU:
+
+1. Open your web browser and go to the Azure portal
+2. Select + New on the left of the portal. Search for Data Science Virtual Machine for Linux Ubuntu CSP in the marketplace. Choosing Ubuntu is critical.
+3. Click Create to create an Ubuntu DSVM.
+4. Fill in the Basics blade with the required information. When selecting the location for your VM, note that GPU VMs (e.g. NC-series) are only available in certain Azure regions, for example, South Central US. See compute products available by region. Click OK to save the Basics information.
+5. Choose the size of the virtual machine. Select one of the sizes with NC-prefixed VMs, which are equipped with NVidia GPU chips. Click View All to see the full list as needed. Learn more about GPU-equipped Azure VMs.
+6. Finish the remaining settings and review the purchase information. Click Purchase to create the VM. Take note of the IP address allocated to the virtual machine - you will need this (or a domain name) in the next section when you are configuring AML.
+
 ### Azure Machine Learning Workbench
 
  -  A Microsoft Azure account where you can create resources, including Application Insights. This could be an organization account, an MSDN subscription account, a Trial Account, or an account provided by your company.

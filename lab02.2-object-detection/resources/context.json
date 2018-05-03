@@ -1,0 +1,7 @@
+{
+    "storage": {
+        "persistent_path": "../../../cvtk_output",
+        "outputs_path": "../../../cvtk_output",
+        "temp_path": "../../../cvtk_output"
+    }
+}
