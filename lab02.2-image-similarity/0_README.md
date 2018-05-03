@@ -135,7 +135,16 @@ For quantitative evaluation, we will use image pairs obtained from the earlier s
     median_rank = re.compute_median_rank()
 ````
 
-The ranks for all query images can be aggregated into metrics such as the median or mean rank. However, aggregation rank metrics such as mean/median can be susceptible to outliers and should be taken with a grain of salt. 
+The diagram below, after sorting, shows where the postive image has rank of 3 (note that this example uses 100 negative images):
+
+![ranked list](images\example_ranking.jpg)
+
+The ranks for all query images can be aggregated into metrics such as the median or mean rank. However, aggregation rank metrics such as mean/median can be susceptible to outliers and should be taken with a grain of salt. In addition, you can also view ton N accuracy by running:
+ ````python
+    acc_plot = re.top_n_acc_plot(n=32, visualize=True)
+```` 
+
+![acc](images\acc.png)
 
 ### Visualization
 

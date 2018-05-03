@@ -6,7 +6,6 @@ import cntk
 import os, shutil
 import cvtk
 import download_images
-from cvtk.storage import DataManager
 from cvtk.utils import Constants
 from cvtk.core import Context, ClassificationDataset, Image, Label, Splitter, CNTKTLModel
 from cvtk.core.ranker import ImagePairs, ImageSimilarityMetricRanker, ImageSimilarityLearnerRanker, ImageSimilarityRandomRanker, RankerEvaluation
@@ -72,4 +71,5 @@ if __name__ == '__main__':
     median_rank = re.compute_median_rank()
     print("mean rank:", mean_rank)
     print("median rank:", median_rank)
-    re.visualize_results(n = 5)
+    acc_plot = re.top_n_acc_plot(n=32, visualize=True)
+    re.visualize_results(n = 5, visualize=True)

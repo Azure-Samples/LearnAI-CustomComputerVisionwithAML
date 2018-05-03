@@ -25,13 +25,6 @@ def download_and_place(kind, link, data_dir, index):
             return 0
     return 1
 
-# def download_all(dataset_location):
-#     dir_path = os.path.dirname(os.path.realpath(__file__))
-#     urls = pd.read_table(os.path.join(dir_path,"fashion_texture_urls.tsv"), names=["kind", "link"])
-#     count = 0
-#     for index, row in urls.iterrows():
-#         count = count + download_and_place(row.kind, row.link, dataset_location, count)
-#     print("Downloaded {} images.".format(count))
 
 def download_all(dataset_location):
     dir_path = os.path.dirname(os.path.realpath(__file__))
