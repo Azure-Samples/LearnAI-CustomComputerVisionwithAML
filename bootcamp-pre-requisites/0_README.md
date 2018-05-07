@@ -25,5 +25,5 @@ To use a DSVM equipped with GPU:
 
 ###  AML Package for Computer Vision
 
-- Go to AML Package for Computer Vision internal Private Preview site located [here](https://aka.ms/aml-cv)
-- Follow the [getting started and installation instructions](https://microsoft.sharepoint.com/teams/ComputerVisionPackage/_layouts/WopiFrame.aspx?sourcedoc=%7B080506BD-B5F3-493C-B867-F29CF68421D8%7D&file=Quickstart%20AML%20Package%20For%20Computer%20Vision.docx&action=default)
+- Go to [AML Package for Computer Vision](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-python)
+- Follow the instructions related to _Install the Package.
