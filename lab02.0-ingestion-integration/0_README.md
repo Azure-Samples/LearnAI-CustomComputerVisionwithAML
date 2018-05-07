@@ -1,4 +1,4 @@
-Data Ingestion and Image Processing
+# Data Ingestion and Image Processing
 
 Using Azure ML Computer Vision Package, this hands-on lab demonstrates how you can ingest image datasets and perform image processing using third party libraries for advanced Computer Vision tasks. 
 
