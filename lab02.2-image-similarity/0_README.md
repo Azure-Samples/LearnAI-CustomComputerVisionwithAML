@@ -19,7 +19,7 @@ The objectives of this lab are to:
 
 In this lab, we will first download a set of clothing images from a list of urls listed in _fashion_texture_urls.tsv_. Each image is annotated as one of 3 different textures (dotted, striped, leopard). The figure below shows examples for the attribute 'striped'.
 
-![stripped_examples](images\examples_striped.jpg)
+![stripped_examples](images/examples_striped.jpg)
 
 All images were scraped using Bing Image Search and hand-annotated. It is important to note that the annotations were performed according to upper body clothing only. _fashion_texture_urls.tsv_ contains category and urls as shown below:
 
@@ -64,7 +64,7 @@ The concept of image pairs is used in developing a ranker. Image pairs are used 
 
 Shown below are two positive image pairs for a given query image in the top row: 
 
-![stripped](images\pair_1.jpg)  ![stripped](images\pair_2.jpg)
+![stripped](images/pair_1.jpg)  ![stripped](images/pair_2.jpg)
 
 
 ### Model Training
@@ -137,22 +137,22 @@ For quantitative evaluation, we will use image pairs obtained from the earlier s
 
 The diagram below, after sorting, shows where the postive image has rank of 3 (note that this example uses 100 negative images):
 
-![ranked list](images\example_ranking.jpg)
+![ranked list](images/example_ranking.jpg)
 
 The ranks for all query images can be aggregated into metrics such as the median or mean rank. However, aggregation rank metrics such as mean/median can be susceptible to outliers and should be taken with a grain of salt. In addition, you can also view ton N accuracy by running:
  ````python
     acc_plot = re.top_n_acc_plot(n=32, visualize=True)
 ```` 
 
-![acc](images\acc.png)
+![acc](images/acc.png)
 
 ### Visualization
 
 For a given query image, you will find the closed ranked image and the correct match image. In the first row of the below image, you will notice that the top ranked image (closest ranked) and the correct match image are the same while it's different in the second row.
 
-![ranked images](images\ranked_images.jpg)
+![ranked images](images/ranked_images.jpg)
 
-![ranked images](images\ranked_images2.jpg)
+![ranked images](images/ranked_images2.jpg)
 
 ### Exercise
 
