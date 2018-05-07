@@ -1,4 +1,4 @@
-/ Data Ingestion and Image Processing
+Data Ingestion and Image Processing
 
 Using Azure ML Computer Vision Package, this hands-on lab demonstrates how you can ingest image datasets and perform image processing using third party libraries for advanced Computer Vision tasks. 
 
@@ -18,7 +18,7 @@ In this lab, we will use a sample classification dataset (resources/sample_data.
 
 | Bowl |Plate|Cup|Cutlery| 
 |------|------|------|-----|
-|![bowl](images/bowl.jpg)|![plate](images\plate.jpg)|![cup](images\cup.jpg)|![bowl](images\cutlery.jpg)
+|![bowl](images/bowl.jpg)|![plate](images/plate.jpg)|![cup](images/cup.jpg)|![bowl](images/cutlery.jpg)
 
 The sample dataset indicates the format required to ingest in the pipeline. You will find that there should be a top level folder containing folders for each class:
 ````
@@ -120,7 +120,7 @@ def extract_contour(train_set_orig):
 
 An example of the edges extracted from an image with a cup is shown below:
 
-![edge results](images\cup_contour.jpg)
+![edge results](images/cup_contour.jpg)
 
 ### Execution
 
