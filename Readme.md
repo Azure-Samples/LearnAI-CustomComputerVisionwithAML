@@ -41,10 +41,10 @@ Pre-requisites can be found [here](bootcamp-pre-requisites/0_README.md). Briefly
 Please note: This is a rough agenda, and the schedule is subject to change pending class activities and interaction.
 
   -  9:00 - 10:00 : Introduction and Context
-  - 10:00 - 11:00 : [Ingestion](lab02.0-ingestion-integration\0_README.md)
-  - 11:00 - 12:00 : [Image Classification](lab02.1-image-classification\0_README.md)
+  - 10:00 - 11:00 : [Ingestion](https://github.com/Azure/LearnAI-CustomComputerVisionwithAML/blob/master/lab02.0-ingestion-integration/0_README.md)
+  - 11:00 - 12:00 : [Image Classification](https://github.com/Azure/LearnAI-CustomComputerVisionwithAML/blob/master/lab02.1-image-classification/0_README.md)
   - 12:00 -  1:00 : Lunch
-  -  1:00 -  2:00 : [Image Similarity](lab02.2-image-similarity\0_README.md)
-  -  2:00 -  3:00 : [Object Detection](lab02.2-object-detection\0_README.md)
-  -  3:00 -  4:00 : [Deployment of pipeline](lab02.4-operationalization\0_README.md)
+  -  1:00 -  2:00 : [Image Similarity](https://github.com/Azure/LearnAI-CustomComputerVisionwithAML/blob/master/lab02.2-image-similarity/0_README.md)
+  -  2:00 -  3:00 : [Object Detection](https://github.com/Azure/LearnAI-CustomComputerVisionwithAML/blob/master/lab02.2-object-detection/0_README.md)
+  -  3:00 -  4:00 : [Deployment of pipeline](https://github.com/Azure/LearnAI-CustomComputerVisionwithAML/blob/master/lab02.4-deployment/0_README.md)
   -  4:00 -  5:00 : Q&A and Feedback
