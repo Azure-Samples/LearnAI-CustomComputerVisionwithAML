@@ -18,7 +18,13 @@ The objectives of this lab are to:
 To deploy the trained model to production, there are several setup steps needed using CLI before running `train_deploy.py`.
 
 1. Set up your environment using the following command:
+    
+    `az provider register -n Microsoft.MachineLearningCompute`
 
+    `az provider register -n Microsoft.ContainerRegistry`
+
+    `az provider register -n Microsoft.ContainerService`
+    
     `az ml env setup --cluster -n <ENVIRONMENT_NAME> -l <AZURE_REGION e.g. eastus2> [-g <RESOURCE_GROUP>]`
 
     For example, `az ml env setup --cluster -n cvtkevn -l eastus2`
