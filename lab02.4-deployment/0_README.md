@@ -25,11 +25,11 @@ To deploy the trained model to production, there are several setup steps needed 
 
     `az provider register -n Microsoft.ContainerService`
     
-    `az ml env setup --cluster -n <ENVIRONMENT_NAME> -l <AZURE_REGION e.g. eastus2> [-g <RESOURCE_GROUP>]`
+    `az ml env setup --cluster -n <ENVIRONMENT_NAME> -l <AZURE_REGION e.g. eastus2> -g <RESOURCE_GROUP>`
 
     For example, `az ml env setup --cluster -n cvtkevn -l eastus2`
 
-2. Ensure that the _provisioning state_ of the environment setup is _Succeeded_. You can check the _provisioning state_ by running the below command:
+2. The _provisioning state_ of the environment setup should be  _Succeeded_ to proceed further. You can check the _provisioning state_ by running the below command:
 
     `az ml env show -n <ENVIRONMENT_NAME> -g <RESOURCE_GROUP>`
 
