@@ -14,7 +14,7 @@ The objectives of this lab are to:
 
 Annotated object locations are required to train and evaluate an object detector. To help draw bounding boxes is [LabelImg](https://tzutalin.github.io/labelImg) which can be installed using [windows_v1.6.0.zip](https://www.dropbox.com/s/tq7zfrcwl44vxan/windows_v1.6.0.zip?dl=1). LabelImg writes an xml-file per image in Pascal-VOC format, which can be read into CVTK: 
 
-![annotaiton](images/annotation_tool.png)
+![annotaiton](images\annotation_tool.png)
 
 ### Data
 
@@ -24,7 +24,7 @@ The dataset (resources\sample_data.zip) used in this lab consists of grocery ite
 
     The annotation files capture each object for the corresponding image (in JPEGImages folder) along with a bounding box that includes the top left corner and bottom right corner points. An example of an annotated image is illustrated below:
 
-    ![Annotated Image](images/sample_image.jpg)
+    ![Annotated Image](images\sample_image.jpg)
 
     At the time of developing this lab, support is present only for bounding boxes and not other shapes.
 
@@ -63,7 +63,7 @@ To execute the detection.py script located in resources, launch Azure Machine Le
 
 In this lab, we will use [Faster R-CNN](https://arxiv.org/abs/1506.01497), a significant improvement of R-CNNs for object detection. The basic idea from the first R-CNN paper is illustrated in the Figure below: (1) Given an input image, (2) in a first step, a large number candidate regions/proposals are generated. (3) These region proposals, are then each independently sent through the network which outputs a vector for each Region of Interest (ROI). Finally, (4) a classifier is learned which takes the ROI representation as input and outputs a label and confidence for each ROI. The ROI's are the objects detected. Fast R-CNN and Faster R-CNN addresses the limitation of R-CNN which is computationally very expensive (since the Neural Network is evaluated for each ROI).
 
-![rcnn](images/rcnn_pipeline.jpg)
+![rcnn](images\rcnn_pipeline.jpg)
 
 To define the [Faster R-CNN](https://arxiv.org/abs/1506.01497) model, we will set _score_threshold_ and _max_total_detections_. _score_threshold_ is used for thresholding the detection score and _max_total_detections_ is used for the number of detections allowed. The larger the value, slower the training (but may increase accuracy).
 
@@ -98,11 +98,11 @@ Below is an example snippet where the parameters are passed for training:
 
 ### Evaluation
 
-We will first create a validation dataset first by calling the helper function _create_from_dir_pascal_voc_ using the validation data as the argument:
+We will first create a validation dataset first by calling the helper function _create_from_dir_ using the validation data as the argument:
 
 ````python
     image_folder = "C:\\path2sample_data\\sample_data\\foods\\test"
-    data_val = ObjectDetectionDataset.create_from_dir_pascal_voc(dataset_name='val_dataset', data_dir=image_folder)
+    data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 ````
 
 Accuracy can be obtained for each category and overall using the below code:
@@ -136,7 +136,7 @@ overall:       : 1.0
 To save the model to a particular path, run the below code and change the model_dir:
 
 ````python
-    save_model_path = "C:\\path2model\\cvtk_output\\frozen_model"
+    save_model_path = "C:\\path2model\\cvtk_output\\faster_rcnn.model"
     my_detector.save(save_model_path)
 ````
 
@@ -190,7 +190,7 @@ For a given query image, you can visualize the objects detected using _detection
 
 View the image saved to to see bounding boxes along with labels and scores as follows:
 
-![scored image](images/scored_image.png)
+![scored image](images\scored_image.png)
 
 ### Tensorboard
 
@@ -214,7 +214,7 @@ To launch tensorboard,
 
 Notice the url (http://cvtkPreview:6006) that is displayed after you run tensorboard. You can open this url via a browser (Chrome or Firefox):
 
-![tensorboard](images/tensorboard.jpg)
+![tensorboard](images\tensorboard.jpg)
 
 In the above image, you will notice that the loss is displayed for the first 300 steps that is defined in _num_steps = 300_. Similarly, you can visualize other metrics that are useful when building or optimizing your model performance.
 
