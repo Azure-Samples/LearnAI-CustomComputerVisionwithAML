@@ -1,5 +1,7 @@
 # Welcome
 
+> **NOTE** This content is no longer maintained. Visit the [Azure Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks) project for sample Jupyter notebooks for ML and deep learning with Azure Machine Learning.
+
 In this workshop, we will focus on hands-on activities that simplify the end-to-end experience of developing custom models for Computer Vision in Azure Machine Learning.
 
 Some prior knowledge about linear algebra, calculus, probability and statistics would definitely be a plus but its not required. The labs will use python code for demonstrating the various scenarios in Computer Vision.
